@@ -17,15 +17,24 @@ void add_method(object * obj, method * new_method) {
   obj->qty_methods++;
   if(obj->methods)
     obj->methods = realloc(obj->methods, obj->qty_methods
-        * sizeof(struct ATTRIBUTE_T *));
+        * sizeof(struct METHOD_T *));
   else
     obj->methods = calloc(obj->qty_methods, obj->qty_methods
-        * sizeof(struct ATTRIBUTE_T *));
+        * sizeof(struct METHOD_T *));
   obj->methods[obj->qty_methods - 1] =
     init_method(new_method->name, new_method->return_type, new_method->status);
 }
 
-void add_attribute(object * obj, attribute * new_attribute) {
+void add_attribute(object * obj, attribute * new_attr) {
+  obj->qty_attrs++;
+  if(obj->attrs)
+    obj->attrs = realloc(obj->attrs, obj->qty_attrs
+        * sizeof(struct ATTRIBUTE_T *));
+  else
+    obj->attrs = calloc(obj->qty_attrs, obj->qty_attrs
+        * sizeof(struct ATTRIBUTE_T *));
+  obj->attrs[obj->qty_attrs - 1] =
+    init_attribute(new_attr->name, new_attr->attr_type, new_attr->status);
 }
 
 void free_object(object * obj) {
