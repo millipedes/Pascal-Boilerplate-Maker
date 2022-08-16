@@ -1,0 +1,60 @@
+@startuml
+
+package Object {
+  class object {
+    {field} + attrs : attribute **
+    {field} + methods : method **
+    {field} + name : char *
+    {field} + qty_attrs : int
+    {field} + qty_method : int
+  }
+
+  class attribute {
+    {field} + name : char *
+    {field} + type : lang_type
+  }
+
+  class method {
+    {field} + name : char *
+    {field} + paramters : attribute **
+    {field} + return_type : lang_type
+    {field} + qty_parameters : int
+  }
+
+  enum privacy_status {
+     {field} + PROTECTED
+     {field} + PRIVATE
+     {field} + PUBLIC
+    {method} + char * privacy_status_to_string(privacy_status)
+  }
+}
+
+package Type {
+  class lang_type {
+    {field} + literal : char *
+    {field} + itself : type
+  }
+
+
+  enum type {
+     {field} + CUSTOM
+     {field} + INTEGER
+     {field} + STRING
+     {field} + TEXTFILE
+     {field} + REAL
+    {method} + char * type_to_string(type)
+  }
+}
+
+attribute o--> privacy_status
+method o--> privacy_status
+
+object o--> attribute
+object o--> method
+
+attribute o--> lang_type
+method o--> lang_type
+
+lang_type o--> type
+
+@enduml

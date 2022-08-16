@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include "include/method.h"
 
 method * init_method(char * name, lang_type * return_type,

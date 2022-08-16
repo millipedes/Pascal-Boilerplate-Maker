@@ -1,0 +1,10 @@
+Object: MyObject
+  Attributes:
+    private   integer     Attribute1
+    protected TCustomType Attribute2
+    public    string      Attribute3
+  End
+  Methods:
+    public ReturnType Push(TTokenstack Token)
+    public ExampleProcedure(TTokenstack Token)
+  End

@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include "include/attribute.h"
 
 attribute * init_attribute(char * name, lang_type * attr_type,

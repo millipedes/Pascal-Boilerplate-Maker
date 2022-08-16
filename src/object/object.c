@@ -1,3 +1,4 @@
+#define _POSIX_C_SOURCE 200809L
 #include "include/object.h"
 
 object * init_object(char * name) {
